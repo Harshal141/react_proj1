@@ -1,0 +1,242 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 4,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-10-09T18:17:18.166Z",
+    "end": "2024-10-09T18:17:20.595Z",
+    "duration": 2429,
+    "testsRegistered": 6,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "452f2458-74b1-4fa6-a0c0-033ef79bcdec",
+      "title": "",
+      "fullFile": "C:\\Users\\Jogeshwari\\Desktop\\ReactRestart\\react_proj1\\test.js",
+      "file": "\\test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e984e94d-0809-4088-90b3-d04f1df32b01",
+          "title": "React App Tests",
+          "fullFile": "C:\\Users\\Jogeshwari\\Desktop\\ReactRestart\\react_proj1\\test.js",
+          "file": "\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"React App Tests\"",
+              "fullTitle": "React App Tests \"before all\" hook in \"React App Tests\"",
+              "timedOut": false,
+              "duration": 1062,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "8ee9cdb6-01cf-4def-9890-34bc32be903e",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"React App Tests\"",
+              "fullTitle": "React App Tests \"after all\" hook in \"React App Tests\"",
+              "timedOut": false,
+              "duration": 42,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "25850041-4c8a-4438-8dbf-6e97e5d3fc71",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should have correct Navbar title",
+              "fullTitle": "React App Tests should have correct Navbar title",
+              "timedOut": false,
+              "duration": 527,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\n\nlet navbarTitle = await driver.findElement(By.css('.navbar-brand')).getText();\nassert.equal(navbarTitle, \"React-Test\", \"Navbar title should be 'Rect-Test'\");",
+              "err": {},
+              "uuid": "d87daa71-d18b-4e57-bb9b-1498738c115b",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should toggle dark mode",
+              "fullTitle": "React App Tests should toggle dark mode",
+              "timedOut": false,
+              "duration": 57,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\n// Click the toggle button\nlet toggleButton = await driver.findElement(By.css('.toggle-button')); // Update selector if needed\nawait toggleButton.click();\n// Check the background color changes\nlet bodyStyle = await driver.findElement(By.tagName('body')).getCssValue('background-color');\nassert.equal(bodyStyle, 'rgba(51, 51, 51, 1)', \"Background color should be #333333 for dark mode\");",
+              "err": {
+                "message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".toggle-button\"}\n  (Session info: chrome=129.0.6668.90)",
+                "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".toggle-button\"}\n  (Session info: chrome=129.0.6668.90)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:521:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:514:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:446:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Driver.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:744:17)\n    at async Context.<anonymous> (test.js:32:28)",
+                "diff": null
+              },
+              "uuid": "880f3905-a6e5-47bb-a95e-d2cfc74749e5",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should convert text to uppercase",
+              "fullTitle": "React App Tests should convert text to uppercase",
+              "timedOut": false,
+              "duration": 212,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\nlet textarea = await driver.findElement(By.css('textarea'));\nawait textarea.sendKeys('hello world');\n\nlet convertButton = await driver.findElement(By.xpath('//button[text()=\"Convert To Uppercase\"]'));\nawait convertButton.click();\nlet uppercasedText = await textarea.getAttribute('value');\nassert.equal(uppercasedText, 'HELLO WORLD', \"Text should be converted to uppercase\");",
+              "err": {},
+              "uuid": "f1038eef-973e-4f3d-a2ea-a5da9a79fd9a",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should search and replace text",
+              "fullTitle": "React App Tests should search and replace text",
+              "timedOut": false,
+              "duration": 253,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\nlet textarea = await driver.findElement(By.css('textarea'));\nawait textarea.sendKeys('hello world');\nlet searchInput = await driver.findElement(By.css('.search'));\nlet replaceInput = await driver.findElement(By.css('.replace'));\nawait searchInput.sendKeys('world');\nawait replaceInput.sendKeys('universe');\n\nlet replaceButton = await driver.findElement(By.xpath('//button[text()=\"Search and Replace\"]'));\nawait replaceButton.click();\nlet replacedText = await textarea.getAttribute('value');\nassert.equal(replacedText, 'hello universe', \"Text should be replaced\");",
+              "err": {},
+              "uuid": "e3443ece-aeca-4fe0-9222-ed8b48237e98",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should remove extra spaces from text",
+              "fullTitle": "React App Tests should remove extra spaces from text",
+              "timedOut": false,
+              "duration": 136,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\nlet textarea = await driver.findElement(By.css('textarea'));\nawait textarea.sendKeys('hello    world');\n\nlet removeSpacesButton = await driver.findElement(By.xpath('//button[text()=\"Remove Extra Spaces\"]'));\nawait removeSpacesButton.click();\nlet cleanedText = await textarea.getAttribute('value');\nassert.equal(cleanedText, 'hello world', \"Extra spaces should be removed\");",
+              "err": {},
+              "uuid": "a034c4c0-58f5-4c7c-948e-63fa504ec17a",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should clear the textarea",
+              "fullTitle": "React App Tests should clear the textarea",
+              "timedOut": false,
+              "duration": 132,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('http://localhost:3000');\nlet textarea = await driver.findElement(By.css('textarea'));\nawait textarea.sendKeys('some text');\n\nlet clearButton = await driver.findElement(By.xpath('//button[text()=\"Clear\"]'));\nawait clearButton.click();\nlet clearedText = await textarea.getAttribute('value');\nassert.equal(clearedText, '', \"Textarea should be cleared\");",
+              "err": {
+                "message": "AssertionError: Textarea should be cleared",
+                "estack": "AssertionError [ERR_ASSERTION]: Textarea should be cleared\n    at Context.<anonymous> (test.js:98:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- some text\n"
+              },
+              "uuid": "ab4b2d65-fc61-44fd-8975-71a3f679dc61",
+              "parentUUID": "e984e94d-0809-4088-90b3-d04f1df32b01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d87daa71-d18b-4e57-bb9b-1498738c115b",
+            "f1038eef-973e-4f3d-a2ea-a5da9a79fd9a",
+            "e3443ece-aeca-4fe0-9222-ed8b48237e98",
+            "a034c4c0-58f5-4c7c-948e-63fa504ec17a"
+          ],
+          "failures": [
+            "880f3905-a6e5-47bb-a95e-d2cfc74749e5",
+            "ab4b2d65-fc61-44fd-8975-71a3f679dc61"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1317,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
