@@ -48,7 +48,7 @@ function App() {
   return (
    <>
 
-<Navbar title = {"Rect-Test"} mode = {dark} toggle={toggle}/>
+<Navbar title = {"React-Test"} mode = {dark} toggle={toggle}/>
 
 <Form show={showAlert} mode = {dark}/>
 
